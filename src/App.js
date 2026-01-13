@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiPhone, FiMail, FiMapPin, FiClock, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import { foodImages, galleryImages, menuItems, specialOffers } from './assets';
+
 
 // Kenyan food images
-const foodImages = {
-  pizza: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80',
-  snacks: 'https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80',
-  drinks: 'https://images.unsplash.com/photo-1551023408-9c4ed8d25a0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-  main: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80',
-  desserts: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80'
-};
+// const foodImages = {
+//   pizza: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80',
+//   snacks: 'https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80',
+//   drinks: 'https://images.unsplash.com/photo-1551023408-9c4ed8d25a0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+//   main: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80',
+//   desserts: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80'
+// };
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,133 +42,133 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const menuItems = [
-    { 
-      id: 1,
-      name: "Nyama Choma Platter", 
-      price: 300, 
-      description: "Tender roasted meat served with kachumbari and ugali", 
-      category: "main",
-      image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-      spicy: true,
-      popular: true
-    },
-      { 
-      id: 13,
-      name: "Mutura", 
-      price: 20, 
-      description: "mixture of meat, blood, and spices, encased in animal intestines", 
-      category: "drinks",
-      image: '/images/mutura.jpg'
-    },
+  // const menuItems = [
+  //   {
+  //     id: 1,
+  //     name: "Nyama Choma Platter",
+  //     price: 300,
+  //     description: "Tender roasted meat served with kachumbari and ugali",
+  //     category: "main",
+  //     image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+  //     spicy: true,
+  //     popular: true
+  //   },
+  //   {
+  //     id: 13,
+  //     name: "Mutura",
+  //     price: 20,
+  //     description: "mixture of meat, blood, and spices, encased in animal intestines",
+  //     category: "drinks",
+  //     image: '/images/mutura.jpg'
+  //   },
 
-    { 
-      id: 2,
-      name: "Ugali & Sukuma Wiki", 
-      price: 100, 
-      description: "Maize meal with braised collard greens and fried fish", 
-      category: "main",
-      image: '/images/ugali.webp',
-      vegan: true
-    },
-    { 
-      id: 3,
-      name: "Smocha", 
-      price: 80, 
-      description: "A combination of smokie and chapati", 
-      category: "main",
-      image: '/images/smocha.jpg',
-      popular: true
-    },
-    { 
-      id: 4,
-      name: "Choma", 
-      price: 70, 
-      description: "3 soft, flaky flatbreads with beans or vegetables", 
-      category: "main",
-      image: '/images/choma.jpg',
-      vegan: true
-    },
-    { 
-      id: 5,
-      name: "Mandazi Delight", 
-      price: 60, 
-      description: "6 pieces of sweet fried dough", 
-      category: "snacks",
-      image: '/images/mandazi.jpg',
-      popular: true
-    },
-    { 
-      id: 6,
-      name: "Samosa Trio", 
-      price: 30, 
-      description: "3 spiced pastries with beef, chicken or vegetable filling", 
-      category: "snacks",
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-      spicy: true
-    },
-    { 
-      id: 7,
-      name: "Tusker Lager", 
-      price: 300, 
-      description: "Kenya's premium lager served chilled", 
-      category: "drinks",
-      image: '/images/tusker.webp',
-      alcoholic: true
-    },
-    { 
-      id: 8,
-      name: "Dawa Cocktail", 
-      price: 450, 
-      description: "Vodka, honey, lime and sugar - Kenya's signature drink", 
-      category: "drinks",
-      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-      alcoholic: true,
-      popular: true
-    },
-    { 
-      id: 9,
-      name: "Fresh Juice", 
-      price: 200, 
-      description: "Seasonal fruits blended to perfection", 
-      category: "drinks",
-      image: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
-      vegan: true
-    },
-    { 
-      id: 10,
-      name: "Ice Cream Sundae", 
-      price: 350, 
-      description: "Homemade vanilla or chocolate with fruit toppings", 
-      category: "desserts",
-      image: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'
-    },
-    { 
-      id: 11,
-      name: "Fruit Salad", 
-      price: 350, 
-      description: "Seasonal fruits with yogurt and honey drizzle", 
-      category: "desserts",
-      image: '/images/fruit.webp',
-      vegan: true
-    },
-    { 
-      id: 12,
-      name: "Kenyan Coffee", 
-      price: 200, 
-      description: "Freshly brewed from Kenyan highlands", 
-      category: "drinks",
-      image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
-    }
-  
-  ];
+  //   {
+  //     id: 2,
+  //     name: "Ugali & Sukuma Wiki",
+  //     price: 100,
+  //     description: "Maize meal with braised collard greens and fried fish",
+  //     category: "main",
+  //     image: '/images/ugali.webp',
+  //     vegan: true
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Smocha",
+  //     price: 80,
+  //     description: "A combination of smokie and chapati",
+  //     category: "main",
+  //     image: '/images/smocha.jpg',
+  //     popular: true
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Choma",
+  //     price: 70,
+  //     description: "3 soft, flaky flatbreads with beans or vegetables",
+  //     category: "main",
+  //     image: '/images/choma.jpg',
+  //     vegan: true
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Mandazi Delight",
+  //     price: 60,
+  //     description: "6 pieces of sweet fried dough",
+  //     category: "snacks",
+  //     image: '/images/mandazi.jpg',
+  //     popular: true
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "Samosa Trio",
+  //     price: 30,
+  //     description: "3 spiced pastries with beef, chicken or vegetable filling",
+  //     category: "snacks",
+  //     image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+  //     spicy: true
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "Tusker Lager",
+  //     price: 300,
+  //     description: "Kenya's premium lager served chilled",
+  //     category: "drinks",
+  //     image: '/images/tusker.webp',
+  //     alcoholic: true
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "Dawa Cocktail",
+  //     price: 450,
+  //     description: "Vodka, honey, lime and sugar - Kenya's signature drink",
+  //     category: "drinks",
+  //     image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+  //     alcoholic: true,
+  //     popular: true
+  //   },
+  //   {
+  //     id: 9,
+  //     name: "Fresh Juice",
+  //     price: 200,
+  //     description: "Seasonal fruits blended to perfection",
+  //     category: "drinks",
+  //     image: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
+  //     vegan: true
+  //   },
+  //   {
+  //     id: 10,
+  //     name: "Ice Cream Sundae",
+  //     price: 350,
+  //     description: "Homemade vanilla or chocolate with fruit toppings",
+  //     category: "desserts",
+  //     image: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'
+  //   },
+  //   {
+  //     id: 11,
+  //     name: "Fruit Salad",
+  //     price: 350,
+  //     description: "Seasonal fruits with yogurt and honey drizzle",
+  //     category: "desserts",
+  //     image: '/images/fruit.webp',
+  //     vegan: true
+  //   },
+  //   {
+  //     id: 12,
+  //     name: "Kenyan Coffee",
+  //     price: 200,
+  //     description: "Freshly brewed from Kenyan highlands",
+  //     category: "drinks",
+  //     image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+  //   }
 
-  const galleryImages = [
-    'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    '/images/choma.jpg',
-    '/images/tusker.webp'
-  ];
+  // ];
+
+  // const galleryImages = [
+  //   'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+  //   'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+  //   '/images/choma.jpg',
+  //   '/images/tusker.webp'
+  // ];
 
   const categories = ['all', 'main', 'snacks', 'drinks', 'desserts'];
   const filters = ['all', 'popular', 'spicy', 'vegan'];
@@ -186,43 +188,43 @@ function App() {
 
   const filteredItems = menuItems.filter(item => {
     const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
-    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         item.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
-  const specialOffers = [
-    {
-      title: "Nyama Choma Wednesday",
-      description: "20% off all meat dishes every Wednesday",
-      code: "NYAMA20",
-      expires: "31/12/2025"
-    },
-    {
-      title: "Family Feast",
-      description: "Buy 3 main dishes, get 1 dessert free",
-      code: "FAMILYFEAST",
-      expires: "30/11/2025"
-    },
-    {
-      title: "Happy Hour",
-      description: "50% off all drinks 4-6pm daily",
-      code: "HAPPYHOUR",
-      expires: "Ongoing"
-    }
-  ];
+  // const specialOffers = [
+  //   {
+  //     title: "Nyama Choma Wednesday",
+  //     description: "20% off all meat dishes every Wednesday",
+  //     code: "NYAMA20",
+  //     expires: "31/12/2025"
+  //   },
+  //   {
+  //     title: "Family Feast",
+  //     description: "Buy 3 main dishes, get 1 dessert free",
+  //     code: "FAMILYFEAST",
+  //     expires: "30/11/2025"
+  //   },
+  //   {
+  //     title: "Happy Hour",
+  //     description: "50% off all drinks 4-6pm daily",
+  //     code: "HAPPYHOUR",
+  //     expires: "Ongoing"
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-      <motion.header 
+      <motion.header
         className={`fixed w-full z-50 transition-colors duration-300 ${isScrolled ? 'bg-green-900 shadow-lg' : 'bg-green-700'}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="container mx-auto p-4 flex justify-between items-center">
-          <motion.div 
+          <motion.div
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
@@ -233,7 +235,7 @@ function App() {
               Kenyan Delights
             </h1>
           </motion.div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 items-center">
             {['menu', 'gallery', 'offers', 'about', 'contact'].map((item) => (
@@ -261,7 +263,7 @@ function App() {
               )}
             </motion.button>
           </nav>
-          
+
           {/* Mobile Menu Button */}
           <div className="flex items-center md:hidden">
             <motion.button
@@ -276,7 +278,7 @@ function App() {
                 </span>
               )}
             </motion.button>
-            <motion.button 
+            <motion.button
               className="text-white text-2xl"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileTap={{ scale: 0.9 }}
@@ -285,11 +287,11 @@ function App() {
             </motion.button>
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div 
+            <motion.div
               className="md:hidden bg-green-800"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
@@ -319,7 +321,7 @@ function App() {
       {/* Shopping Cart Sidebar */}
       <AnimatePresence>
         {isCartOpen && (
-          <motion.div 
+          <motion.div
             className="fixed inset-y-0 right-0 w-full md:w-96 bg-white shadow-xl z-50 p-6 overflow-y-auto"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
@@ -328,14 +330,14 @@ function App() {
           >
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold text-gray-800">Your Order</h2>
-              <button 
+              <button
                 onClick={() => setIsCartOpen(false)}
                 className="text-gray-500 hover:text-gray-700"
               >
                 <FiX size={24} />
               </button>
             </div>
-            
+
             {cartItems.length === 0 ? (
               <div className="text-center py-8">
                 <p className="text-gray-500">Your cart is empty</p>
@@ -352,7 +354,7 @@ function App() {
               <>
                 <div className="space-y-4 mb-6">
                   {cartItems.map((item, index) => (
-                    <motion.div 
+                    <motion.div
                       key={`${item.id}-${index}`}
                       className="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
                       initial={{ opacity: 0, x: 20 }}
@@ -363,7 +365,7 @@ function App() {
                         <h4 className="font-medium">{item.name}</h4>
                         <p className="text-sm text-gray-500">KSh {item.price}</p>
                       </div>
-                      <button 
+                      <button
                         onClick={() => removeFromCart(index)}
                         className="text-red-500 hover:text-red-700"
                       >
@@ -372,14 +374,14 @@ function App() {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <div className="border-t border-gray-200 pt-4 mb-6">
                   <div className="flex justify-between font-bold text-lg">
                     <span>Total:</span>
                     <span>KSh {totalCartAmount}</span>
                   </div>
                 </div>
-                
+
                 <motion.button
                   className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg mb-3"
                   whileHover={{ scale: 1.01 }}
@@ -387,8 +389,8 @@ function App() {
                 >
                   Proceed to Checkout
                 </motion.button>
-                
-                <button 
+
+                <button
                   className="w-full text-green-600 font-medium py-2"
                   onClick={() => setIsCartOpen(false)}
                 >
@@ -402,14 +404,14 @@ function App() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-green-700 overflow-hidden">
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center opacity-30"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2 }}
         />
         <div className="container mx-auto px-4 z-10 text-center">
-          <motion.h1 
+          <motion.h1
             className="text-5xl md:text-7xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -417,7 +419,7 @@ function App() {
           >
             Taste of Kenya
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -450,8 +452,8 @@ function App() {
             </motion.a>
           </div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
@@ -467,7 +469,7 @@ function App() {
         {/* Menu Section */}
         <section id="menu" className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -476,7 +478,7 @@ function App() {
             >
               Our Menu
             </motion.h2>
-            
+
             {/* Search and Filter */}
             <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
               <div className="w-full md:w-1/3">
@@ -493,7 +495,7 @@ function App() {
                   </svg>
                 </div>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <motion.button
@@ -508,12 +510,12 @@ function App() {
                 ))}
               </div>
             </div>
-            
+
             {/* Menu Items */}
             {filteredItems.length === 0 ? (
               <div className="text-center py-12">
                 <h3 className="text-xl font-medium text-gray-600">No items found matching your search</h3>
-                <button 
+                <button
                   onClick={() => {
                     setActiveCategory('all');
                     setSearchTerm('');
@@ -536,8 +538,8 @@ function App() {
                     whileHover={{ y: -5 }}
                   >
                     <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={item.image || foodImages[item.category] || foodImages.pizza} 
+                      <img
+                        src={item.image || foodImages[item.category] || foodImages.pizza}
                         alt={item.name}
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                       />
@@ -586,7 +588,7 @@ function App() {
         {/* Food Gallery */}
         <section id="gallery" className="py-16 bg-gray-100">
           <div className="container mx-auto px-4">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -595,7 +597,7 @@ function App() {
             >
               Food Gallery
             </motion.h2>
-            
+
             <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-xl">
               {galleryImages.map((image, index) => (
                 <motion.div
@@ -603,14 +605,14 @@ function App() {
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${image})` }}
                   initial={{ opacity: 0 }}
-                  animate={{ 
+                  animate={{
                     opacity: index === activeGalleryImage ? 1 : 0,
                     scale: index === activeGalleryImage ? 1 : 1.05
                   }}
                   transition={{ duration: 1 }}
                 />
               ))}
-              
+
               <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
                 {galleryImages.map((_, index) => (
                   <button
@@ -621,7 +623,7 @@ function App() {
                 ))}
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
               {galleryImages.map((image, index) => (
                 <motion.div
@@ -630,9 +632,9 @@ function App() {
                   whileHover={{ scale: 1.02 }}
                   onClick={() => setActiveGalleryImage(index)}
                 >
-                  <img 
-                    src={image} 
-                    alt={`Gallery ${index + 1}`} 
+                  <img
+                    src={image}
+                    alt={`Gallery ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
@@ -644,7 +646,7 @@ function App() {
         {/* Special Offers */}
         <section id="offers" className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -653,7 +655,7 @@ function App() {
             >
               Special Offers
             </motion.h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {specialOffers.map((offer, index) => (
                 <motion.div
@@ -687,7 +689,7 @@ function App() {
             <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="md:flex">
                 <div className="md:w-1/2 bg-green-700 text-white p-8 md:p-12 flex flex-col justify-center">
-                  <motion.h2 
+                  <motion.h2
                     className="text-3xl font-bold mb-4"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -696,7 +698,7 @@ function App() {
                   >
                     Book a Table
                   </motion.h2>
-                  <motion.p 
+                  <motion.p
                     className="mb-6"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -705,7 +707,7 @@ function App() {
                   >
                     Reserve your table online and enjoy a seamless dining experience.
                   </motion.p>
-                  <motion.div 
+                  <motion.div
                     className="space-y-4"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -722,7 +724,7 @@ function App() {
                     </div>
                   </motion.div>
                 </div>
-                
+
                 <div className="md:w-1/2 p-8 md:p-12">
                   <motion.form
                     initial={{ opacity: 0, x: 20 }}
@@ -732,27 +734,27 @@ function App() {
                   >
                     <div className="mb-4">
                       <label className="block text-gray-700 mb-2">Full Name</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                         placeholder="Your name"
                       />
                     </div>
-                    
+
                     <div className="mb-4">
                       <label className="block text-gray-700 mb-2">Email</label>
-                      <input 
-                        type="email" 
+                      <input
+                        type="email"
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                         placeholder="Your email"
                       />
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <div>
                         <label className="block text-gray-700 mb-2">Date</label>
-                        <input 
-                          type="date" 
+                        <input
+                          type="date"
                           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                           value={reservationDate}
                           onChange={(e) => setReservationDate(e.target.value)}
@@ -760,18 +762,18 @@ function App() {
                       </div>
                       <div>
                         <label className="block text-gray-700 mb-2">Time</label>
-                        <input 
-                          type="time" 
+                        <input
+                          type="time"
                           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                           value={reservationTime}
                           onChange={(e) => setReservationTime(e.target.value)}
                         />
                       </div>
                     </div>
-                    
+
                     <div className="mb-6">
                       <label className="block text-gray-700 mb-2">Number of Guests</label>
-                      <select 
+                      <select
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                         value={reservationGuests}
                         onChange={(e) => setReservationGuests(e.target.value)}
@@ -782,7 +784,7 @@ function App() {
                         <option value="9+">9+ people</option>
                       </select>
                     </div>
-                    
+
                     <motion.button
                       type="button"
                       className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition-colors"
@@ -803,7 +805,7 @@ function App() {
         <section id="about" className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-12">
-              <motion.div 
+              <motion.div
                 className="md:w-1/2"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -828,8 +830,8 @@ function App() {
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="md:w-1/2 rounded-xl overflow-hidden shadow-xl"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -837,9 +839,9 @@ function App() {
                 transition={{ duration: 0.8 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <img 
-                  src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                  alt="Kenyan cuisine" 
+                <img
+                  src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  alt="Kenyan cuisine"
                   className="w-full h-auto object-cover"
                 />
               </motion.div>
@@ -850,7 +852,7 @@ function App() {
         {/* Testimonials */}
         <section className="py-16 bg-gray-100">
           <div className="container mx-auto px-4">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -859,7 +861,7 @@ function App() {
             >
               What Our Customers Say
             </motion.h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
@@ -911,7 +913,7 @@ function App() {
         {/* Contact Section */}
         <section id="contact" className="py-16 bg-green-700 text-white">
           <div className="container mx-auto px-4">
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -920,7 +922,7 @@ function App() {
             >
               Contact Us
             </motion.h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -929,7 +931,7 @@ function App() {
                 transition={{ duration: 0.8 }}
               >
                 <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <FiMapPin className="text-yellow-400 mt-1 mr-3 text-xl" />
@@ -938,7 +940,7 @@ function App() {
                       <p>123 Moi Avenue, Nairobi, Kenya</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <FiPhone className="text-yellow-400 mt-1 mr-3 text-xl" />
                     <div>
@@ -946,7 +948,7 @@ function App() {
                       <p>+254 712 345 678</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <FiMail className="text-yellow-400 mt-1 mr-3 text-xl" />
                     <div>
@@ -954,7 +956,7 @@ function App() {
                       <p>info@kenyandelights.co.ke</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <FiClock className="text-yellow-400 mt-1 mr-3 text-xl" />
                     <div>
@@ -968,29 +970,29 @@ function App() {
                 <div className="mt-8">
                   <h4 className="font-semibold mb-3">Follow Us</h4>
                   <div className="flex space-x-4">
-                    <motion.a 
-                      href="#" 
+                    <motion.a
+                      href="#"
                       className="text-white hover:text-yellow-300"
                       whileHover={{ y: -3 }}
                     >
                       <FaFacebook size={24} />
                     </motion.a>
-                    <motion.a 
-                      href="#" 
+                    <motion.a
+                      href="#"
                       className="text-white hover:text-yellow-300"
                       whileHover={{ y: -3 }}
                     >
                       <FaInstagram size={24} />
                     </motion.a>
-                    <motion.a 
-                      href="#" 
+                    <motion.a
+                      href="#"
                       className="text-white hover:text-yellow-300"
                       whileHover={{ y: -3 }}
                     >
                       <FaTwitter size={24} />
                     </motion.a>
-                    <motion.a 
-                      href="#" 
+                    <motion.a
+                      href="#"
                       className="text-white hover:text-yellow-300"
                       whileHover={{ y: -3 }}
                     >
@@ -999,7 +1001,7 @@ function App() {
                   </div>
                 </div>
               </motion.div>
-              
+
               <motion.form
                 className="bg-white p-6 rounded-lg shadow-lg text-gray-800"
                 initial={{ opacity: 0, x: 50 }}
@@ -1008,44 +1010,44 @@ function App() {
                 transition={{ duration: 0.8 }}
               >
                 <h3 className="text-2xl font-semibold mb-6">Send us a Message</h3>
-                
+
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-1">Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       placeholder="Your name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium mb-1">Email</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       placeholder="Your email"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium mb-1">Subject</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       placeholder="Subject"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium mb-1">Message</label>
-                    <textarea 
+                    <textarea
                       rows="4"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       placeholder="Your message"
                     ></textarea>
                   </div>
-                  
+
                   <motion.button
                     type="button"
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition-colors"
@@ -1063,12 +1065,12 @@ function App() {
 
         {/* Map Section */}
         <section className="h-96 w-full">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808722618234!2d36.82154831475399!3d-1.286899835980925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d664f5b3c9%3A0x4a0c81f1f4a0c81f!2sMoi%20Avenue%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808722618234!2d36.82154831475399!3d-1.286899835980925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d664f5b3c9%3A0x4a0c81f1f4a0c81f!2sMoi%20Avenue%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
             loading="lazy"
             title="Restaurant Location"
           ></iframe>
@@ -1100,7 +1102,7 @@ function App() {
                 ))}
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1118,7 +1120,7 @@ function App() {
                 ))}
               </ul>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1132,7 +1134,7 @@ function App() {
                 <li>info@kenyandelights.co.ke</li>
               </ul>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1142,9 +1144,9 @@ function App() {
               <h4 className="font-bold mb-4">Newsletter</h4>
               <p className="mb-2 text-green-200">Subscribe for updates and offers</p>
               <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
+                <input
+                  type="email"
+                  placeholder="Your email"
                   className="px-4 py-2 text-gray-800 rounded-l-md w-full focus:outline-none"
                 />
                 <motion.button
@@ -1157,8 +1159,8 @@ function App() {
               </div>
             </motion.div>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             className="border-t border-green-800 mt-8 pt-6 text-center text-green-200"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
